@@ -6,6 +6,12 @@ const createHomeTab = () => {
   const headline = document.createElement('h1');
   headline.textContent = 'Fuel for the Final Frontier';
 
+  // Hero Image (Neon diner aesthetic)
+  const heroImage = document.createElement('img');
+  heroImage.src = 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80';
+  heroImage.alt = 'Cosmic Cafe interior glowing with neon lights';
+  heroImage.classList.add('hero-image');
+
   // Hero description container / card
   const card = document.createElement('div');
   card.classList.add('hero-card');
@@ -24,6 +30,7 @@ const createHomeTab = () => {
   hoursNote.textContent = 'Hours: Earth Standard Time (Open 24/7 across all solar systems)';
 
   homeDiv.appendChild(headline);
+  homeDiv.appendChild(heroImage);
   homeDiv.appendChild(card);
   homeDiv.appendChild(hoursNote);
 

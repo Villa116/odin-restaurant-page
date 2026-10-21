@@ -1,3 +1,5 @@
+// import { javascript } from "webpack";
+
 const createMenuTab = () => {
   const menuDiv = document.createElement('div');
   menuDiv.classList.add('menu-content');
@@ -5,32 +7,57 @@ const createMenuTab = () => {
   const headline = document.createElement('h1');
   headline.textContent = 'Out-of-This-World Menue';
 
-  const item1 = document.createElement('div');
-  item1.classList.add('menu-item');
-  const title1 = document.createElement('h3');
-  title1.textContent = 'Zero-Gravity Pancakes';
-  const desc1 = document.createElement('p');
-  desc1.textContent = 'Fluffy buttermilk pancakes drizzled with shimmering galaxy syrup. They might just float off your plate!';
-  item1.appendChild(title1);
-  item1.appendChild(desc1);
+  // Helper function to create a menu item card with an image
+  const createMenuItem = (titleText, descText, imgSrc, imgAlt) => {
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('menu-item');
 
-  const item2 = document.createElement('div');
-  item1.classList.add('menu-item');
-  const title2 = document.createElement('h3');
-  title1.textContent = 'Zero-Gravity Pancakes';
-  const desc2 = document.createElement('p');
-  desc1.textContent = 'A juicy beef patty topped with spicy plasma sauce, meteor-charred bun, and melted cosmic cheddar.';
-  item1.appendChild(title2);
-  item1.appendChild(desc2);
-  
-  const item3 = document.createElement('div');
-  item1.classList.add('menu-item');
-  const title3 = document.createElement('h3');
-  title1.textContent = 'Zero-Gravity Pancakes';
-  const desc3 = document.createElement('p');
-  desc1.textContent = 'Swirling purple blackberry ice cream topped with edible star-dust sprinkles and an anti-gravity cherry.';
-  item1.appendChild(title3);
-  item1.appendChild(desc3);
+    const img = document.createElement('img');
+    img.src = imgSrc;
+    img.alt = imgAlt;
+    img.classList.add('menu-img');
+
+    const textContainer = document.createElement('div');
+    textContainer.classList.add('menu-text');
+
+    const title = document.createElement('h3');
+    title.textContent = titleText;
+
+    const desc = document.createElement('p');
+    desc.textContent = descText;
+
+    textContainer.appendChild(title);
+    textContainer.appendChild(desc);
+
+    itemDiv.appendChild(img);
+    itemDiv.appendChild(textContainer);
+
+    return itemDiv;
+  };
+
+  // Item 1: Pancakes
+  const item1 = createMenuItem(
+    'Zero-Gravity Pancakes',
+    'Fluffy buttermilk pancakes drizzled with shimmering galaxy syrup. They might just float off your plate!',
+    'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80',
+    'Stack of fluffy pancakes'
+  );
+
+  // Item 2: Burger
+  const item2 = createMenuItem(
+    'The Supernova Burger',
+    'A juicy beef patty topped with spicy plasma sauce, meteor-charred bun, and melted cosmic cheddar.',
+    'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80',
+    'Juicy gourmet burger'
+  );
+
+  // Item 3: Milkshake
+  const item3 = createMenuItem(
+    'Nebula Milkshake',
+    'Swirling purple blackberry ice cream topped with edible star-dust sprinkles and an anti-gravity cherry.',
+    'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=400&q=80',
+    'Rich creamy milkshake'
+  );
   
   menuDiv.appendChild(headline);
   menuDiv.appendChild(item1);
